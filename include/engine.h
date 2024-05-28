@@ -1,6 +1,7 @@
 #ifndef _PCKM_ENGINE_H_
 #define _PCKM_ENGINE_H_
 #include "common/config.h"
+#include "common/utils.h"
 #include "cli.h"
 #include <stdio.h>
 
@@ -9,7 +10,9 @@ void run_engine(const char *app_name, struct Config *config)
     switch (config->type)
     {
     case CONFIG_CREATE:
-        
+        printf("Building the project %s folder Structure\n", config->data.config_create.project_name);
+        if(!(make_folder_struct(config, config->data.config_create)))
+            printf("Error\n");
         break;
     case CONFIG_BUILD:
         printf("Building the project in mode %d\n", config->data.build_type);
