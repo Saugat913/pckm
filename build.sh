@@ -1,1 +1,1 @@
-gcc -g main.c  -I ./include -o pckm -lc
+gcc -g  main.c  -I ./include -o pckm -lc
